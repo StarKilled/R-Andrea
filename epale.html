@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Retrato Favorito</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .card img:hover {
+      transform: scale(1.05);
+    }
+
+    .card h2 {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .btn {
+      margin-top: 1rem;
+      padding: 10px 20px;
+      background-color: #ee9ca7;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ff6f91;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="Andrea.jpg" alt="Foto de Andrea" id="fotoChica">
+    <h2>Ella me gusta 💖</h2>
+    <button class="btn" onclick="cambiarMensaje()">Clikear :D</button>
+    <p id="mensaje"></p>
+  </div>
+
+  <!-- Elemento de audio -->
+  <audio id="audioPlayer" autoplay loop></audio>
+
+  <script>
+    const mensajes = [
+      "Tienes la sonrisa más hermosa 🌟",
+      "Eres mi inspiración cada día 🌷",
+      "Solo quería decirte... ¡me encantas! 😍",
+      "Contigo todo es más bonito 💫"
+    ];
+
+    const canciones = [
+      "musica1x.mp3",
+      "musica2.mp3",
+      "musica3x.mp3",
+      "musica4x.mp3"
+    ];
+
+    function cambiarMensaje() {
+      const indice = Math.floor(Math.random() * mensajes.length);
+      const mensaje = mensajes[indice];
+      const cancion = canciones[indice];
+
+      document.getElementById("mensaje").innerText = mensaje;
+
+      const audio = document.getElementById("audioPlayer");
+      audio.src = cancion;
+      audio.play();
+    }
+  </script>
+
+</body>
+</html>
