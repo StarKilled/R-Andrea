@@ -142,31 +142,34 @@
     ];
 
     function cambiarMensaje() {
-      const indice = Math.floor(Math.random() * mensajes.length);
-      const mensaje = mensajes[indice];
-      const cancion = canciones[indice];
+  const indiceMensaje = Math.floor(Math.random() * mensajes.length);
+  const mensaje = mensajes[indiceMensaje];
 
-      const mensajeElem = document.getElementById("mensaje");
-      const boton = document.getElementById("boton");
-      const foto = document.getElementById("fotoChica");
+  const indiceCancion = Math.floor(Math.random() * canciones.length);
+  const cancion = canciones[indiceCancion];
 
-      // Reproduce audio
-      const audio = document.getElementById("audioPlayer");
-      audio.src = cancion;
-      audio.play();
+  const mensajeElem = document.getElementById("mensaje");
+  const boton = document.getElementById("boton");
+  const foto = document.getElementById("fotoChica");
 
-      // Añadir animaciones
-      mensajeElem.innerText = mensaje;
-      mensajeElem.classList.remove("fade-in"); // reinicia la animación si ya estaba
-      void mensajeElem.offsetWidth; // hack para reiniciar animación
-      mensajeElem.classList.add("fade-in");
+  // Reproduce audio
+  const audio = document.getElementById("audioPlayer");
+  audio.src = cancion;
+  audio.play();
 
-      boton.classList.add("heartbeat");
-      setTimeout(() => boton.classList.remove("heartbeat"), 600);
+  // Añadir animaciones
+  mensajeElem.innerText = mensaje;
+  mensajeElem.classList.remove("fade-in");
+  void mensajeElem.offsetWidth;
+  mensajeElem.classList.add("fade-in");
 
-      foto.classList.add("shake");
-      setTimeout(() => foto.classList.remove("shake"), 400);
-    }
+  boton.classList.add("heartbeat");
+  setTimeout(() => boton.classList.remove("heartbeat"), 600);
+
+  foto.classList.add("shake");
+  setTimeout(() => foto.classList.remove("shake"), 400);
+}
+
   </script>
 
 </body>
